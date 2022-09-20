@@ -38,5 +38,13 @@ export const renewJwt = async (req, res) => {
   // Gen JWT
   const token = await genJWT(authenticatedUser.id);
 
-  res.status(200).json({ ok: true, token });
+  res.status(200).json({
+    ok: true,
+    token,
+    user: {
+      uid: authenticatedUser.id,
+      name: authenticatedUser.name,
+      email: authenticatedUser.email,
+    },
+  });
 };

@@ -42,8 +42,11 @@ export const loginRules = () => [
 // Calendar events
 export const newEventRules = () => [
   body('title', 'Title is required!').not().isEmpty(),
-  body('start', 'Initial date is required!').isDate(),
-  body('end', 'Finish date is required!').isDate(),
+  // TODO: Validar fechas
+  // body('start', 'Initial date is required!').isDate(),
+  // body('end', 'Finish date is required!').isDate(),
+  body('start', 'Initial date is required!').not().isEmpty(),
+  body('end', 'Finish date is required!').notEmpty(),
   validate,
 ];
 
